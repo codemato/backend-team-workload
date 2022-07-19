@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-test
+spec:
+  selector:
+    matchLabels:
+      app: nginx-test
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nginx-test
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx-test
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+          - name: config-vol
+            mountPath: /etc/nginx/
+      volumes:
+        - name: config-vol
+          configMap:
+            name: nginx-config
+            items:
+              - key: nginx.conf
+                path: nginx.conf
