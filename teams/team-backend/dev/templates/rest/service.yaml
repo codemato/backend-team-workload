@@ -9,6 +9,9 @@ spec:
   ports:
   - port: 80
     protocol: TCP
+    targetPort: 8090
+  - port: 8091
+    protocol: TCP
     targetPort: 8091
   selector:
     app: spring-boot-rest
