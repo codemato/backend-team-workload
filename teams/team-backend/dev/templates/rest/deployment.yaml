@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-backend-api
+  name: spring-boot-rest
   labels:
-    app: my-backend-api
+    app: spring-boot-rest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-backend-api
+      app: spring-boot-rest
   template:
     metadata:
       labels:
-        app: my-backend-api
+        app: spring-boot-rest
     spec:
       containers:
-      - name: my-backend-api
-        image: andyy5/my-backend-api
+      - name: spring-boot-resti
+        image: kuramoto/spring-boot-rest
