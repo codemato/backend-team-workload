@@ -8,9 +8,11 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
+    name: app
     protocol: TCP
     targetPort: 8090
   - port: 8091
+    name: operation
     protocol: TCP
     targetPort: 8091
   selector:
